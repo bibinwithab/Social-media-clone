@@ -11,9 +11,9 @@
    ```
 
 2. Get into the Project directory
-  ```sh
-  cd Social-media-clone
-  ```
+     ```sh
+     cd Social-media-clone
+     ```
 
 3. Install NPM packages
 
