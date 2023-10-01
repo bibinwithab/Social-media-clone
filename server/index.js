@@ -71,6 +71,20 @@ app.post("/posts", async (req, res)=>{
     res.send(newPost);
 })
 
+app.post("/posts/:id/comment", async (req, res)=>{
+    const id = req.params.id;
+    const comment = req.body.comment;
+
+    const post = await Post.findById(id);
+
+    if (post) {
+        post.comment.push(comment);
+    }
+    
+    await post.save();
+    res.send(post);
+})
+
 app.delete("/posts/:id", async (req, res)=>{
     const id = req.params.id;
     await Post.findByIdAndDelete(id);
