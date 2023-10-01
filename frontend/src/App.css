@@ -37,7 +37,7 @@ input[type="text"] {
   border: 1px solid #555; /* Dark gray border */
   border-radius: 5px;
   font-size: 16px;
-  margin: 10px 0;
+  margin: 10px 10px;
   background-color: #444; /* Dark gray background */
   color: #fff; /* White text color */
 }
@@ -48,6 +48,8 @@ button[type="submit"] {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
+  width: 98%;
+  margin: 10px 10px;
   font-size: 16px;
   cursor: pointer;
 }
@@ -61,7 +63,7 @@ ul {
 li {
   background-color: #333;
   padding: 10px;
-  margin: 10px 0;
+  margin: 10px 0 ;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -75,8 +77,9 @@ li img {
 }
 
 li p {
-  font-size: 18px;
-  margin: 10px 0;
+  font-size: 16px;
+  margin: 10px ;
+  text-align: center;
 }
 
 /* Style the buttons for upvoting and downvoting */
@@ -91,15 +94,16 @@ button {
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 15px 20px;
   font-size: 16px;
-  margin-right: 10px;
+  margin-right: 20px;
   cursor: pointer;
 }
 
 span {
   font-size: 18px;
   color: #ff9800; /* Orange text color */
+  margin-right: 20px;
 }
 
 /* Style the input field and button for adding comments */
@@ -129,5 +133,16 @@ ul ul li {
 
 /* Add hover effect for buttons */
 button:hover {
-  background-color: #ff8300; /* Darker orange on hover */
+  background-color: #e87800; /* Darker orange on hover */
+}
+
+/* Style the delete button */
+.delete-button {
+  background-color: #ff3333; /* Red background */
+  margin-left: 81%;
+  margin-bottom: 10px;
+}
+
+.delete-button:hover{
+  background-color: #ff1616;
 }

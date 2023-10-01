@@ -55,16 +55,13 @@ function App() {
 
   // Function to handle submitting a new comment
   const handleCommentSubmit = (id) => {
-    // Send a PUT request to add a comment to a post
     axios
       .put(`http://localhost:8000/posts/${id}/comment`, { comment })
       .then((response) => {
-        // Update the state with the updated post (including the new comment)
         const updatedPosts = posts.map((post) =>
           post._id === response.data._id ? response.data : post
         );
         setPosts(updatedPosts);
-        // Clear the comment input field
         setComment('');
       })
       .catch((error) => console.error('Error adding comment:', error));
@@ -75,7 +72,6 @@ function App() {
     axios
       .delete(`http://localhost:8000/posts/${id}`)
       .then(() => {
-        // Remove the deleted post from the state
         const updatedPosts = posts.filter((post) => post._id !== id);
         setPosts(updatedPosts);
       })
@@ -95,6 +91,7 @@ function App() {
             value={newPost.image}
             onChange={(e) => setNewPost({ ...newPost, image: e.target.value })}
             required
+            placeholder='Enter the Image Address'
           />
         </label>
         <label>
@@ -103,9 +100,10 @@ function App() {
             type="text"
             value={newPost.caption}
             onChange={(e) => setNewPost({ ...newPost, caption: e.target.value })}
+            placeholder='Enter a caption'
           />
         </label>
-        <button type="submit">Submit</button>
+        <button type="submit" >Submit</button>
       </form>
 
       {/* List of posts */}
@@ -128,13 +126,13 @@ function App() {
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
               />
-              <button onClick={() => handleCommentSubmit(post._id)}>Submit Comment</button>
+              <button onClick={() => handleCommentSubmit(post._id)} type="button">Comment</button>
             </div>
 
             {/* Display comments */}
             <ul>
               {post.comment.map((c, index) => (
-                <li key={index}>{c}</li>
+                <li key={index} className='comments'>{c}</li>
               ))}
             </ul>
 
