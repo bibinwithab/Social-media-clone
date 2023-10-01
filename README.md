@@ -1,21 +1,21 @@
 
-#### Social Media Clone - Caption Chaos
+## Social Media Clone - Caption Chaos
 
 >Full Stack App developed using MERN stack that lets you post memes and caption it.
 
-## Installation
+# Installation
 
-#1. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/bibinwithab/Social-media-clone.git
    ```
 
-#2. Get into the Project directory
+2. Get into the Project directory
      ```sh
      cd Social-media-clone
      ```
 
-#3. Install NPM packages
+3. Install NPM packages
 
 - Backend
    ```sh
@@ -27,12 +27,12 @@
    cd frontend
    npm install
    ```
-#4. Inside `server` Folder ,create a new `.env` file and setup you PORT and MONGODB_URI
+4. Inside `server` Folder ,create a new `.env` file and setup you PORT and MONGODB_URI
    ```js
    PORT='YOUR_PORT_NUMBER' 
    MONGODB_URI='YOUR_MONGODB_URI'
    ```
-#5. Start both the Frontend and Backend
+5. Start both the Frontend and Backend
 - inside server
    ```sh
    node index.js
@@ -45,7 +45,7 @@
    ```sh
    npm run dev
    ```
-## Authors
+# Authors
 
 - [@bibinwithab](https://www.github.com/bibinwithab)
 
