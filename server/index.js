@@ -31,34 +31,50 @@ app.get("/", (req, res) => {
     res.send("Use /posts to checkout all posts");
 })
 
-app.use("/posts", (req, res)=>{
-    res.json(Post);
+app.get("/posts", async (req, res)=>{
+    const allPost = await Post.find({});
+    res.send(allPost)
 });
 
+app.get("/posts/:id", async (req, res)=>{
+    const id = req.params.id;
 
-app.put("/posts/:id", (req, res)=>{
-    Post.findById(req.params.id).then((post)=>{
-        post.upvote = req.body.upvote;
-        post.save().then((post)=>{
-            res.json(post);
-        })
-    })
+    const post = await Post.findById(id);
+    
+    res.send(post);
 })
 
-app.put("/posts/:id", (req, res)=>{
-    Post.findById(req.params.id).then((post)=>{
-        post.comment = req.body.comment;
-        post.save().then((post)=>{
-            res.json(post);
-        })
+app.put("/posts/:id", async (req, res)=>{
+    const id = req.params.id;
+    const caption = req.body.caption;
+
+    const post = await Post.findById(id);
+
+    if(caption){
+        post.caption = caption;
+    }
+
+    await post.save();
+    res.send(post);
+})t 
+
+app.post("/posts", async (req, res)=>{
+    const image = req.body.image;
+    const caption = req.body.caption;
+
+    const newPost = new Post({
+        image: image,
+        caption: caption
     })
+
+    await newPost.save();
+    res.send(newPost);
 })
 
-
-app.delete("/posts/:id", (req, res)=>{
-    Post.findByIdAndDelete(req.params.id).then((post)=>{
-        res.json(post);
-    })
+app.delete("/posts/:id", async (req, res)=>{
+    const id = req.params.id;
+    await Post.findByIdAndDelete(id);
+    res.send("Deleted")
 })
 
 
