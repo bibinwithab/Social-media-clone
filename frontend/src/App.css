@@ -139,7 +139,9 @@ button:hover {
 /* Style the delete button */
 .delete-button {
   background-color: #ff3333; /* Red background */
-  margin-left: 81%;
+  width: 97%;
+  margin-right: 10px;
+  margin-left: 10px;
   margin-bottom: 10px;
 }
 
