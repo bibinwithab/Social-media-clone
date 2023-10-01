@@ -56,7 +56,7 @@ app.put("/posts/:id", async (req, res)=>{
 
     await post.save();
     res.send(post);
-})t 
+})
 
 app.post("/posts", async (req, res)=>{
     const image = req.body.image;
