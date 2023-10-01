@@ -1,5 +1,5 @@
 
-## Social Media Clone - Caption Chaos
+# Social Media Clone - Caption Chaos
 
 >Full Stack App developed using MERN stack that lets you post memes and caption it.
 
