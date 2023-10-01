@@ -71,7 +71,7 @@ app.post("/posts", async (req, res)=>{
     res.send(newPost);
 })
 
-app.post("/posts/:id/comment", async (req, res)=>{
+app.put("/posts/:id/comment", async (req, res)=>{
     const id = req.params.id;
     const comment = req.body.comment;
 
@@ -83,6 +83,31 @@ app.post("/posts/:id/comment", async (req, res)=>{
     
     await post.save();
     res.send(post);
+})
+
+app.put("/posts/:id/upvote", async (req, res)=>{
+    const id = req.params.id;
+
+    const post = await Post.findById(id);
+
+    if (post) {
+        post.upvote += 1;
+    }
+
+    await post.save();
+    res.send(post);
+})
+
+app.put("/posts/:id/downvote", async (req, res)=>{
+    const id = req.params.id;
+
+    const post = await Post.findById(id);
+
+    if (post) {
+        post.upvote -= 1;
+    }
+
+    await post.save();
 })
 
 app.delete("/posts/:id", async (req, res)=>{
