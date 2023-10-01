@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import axios from 'axios'; // Import Axios
+import axios from 'axios'; 
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -9,18 +9,16 @@ function App() {
   // Fetch all posts from the server on component mount
   useEffect(() => {
     axios
-      .get('http://localhost:8000/posts') // Use Axios for GET request
+      .get('http://localhost:8000/posts') 
       .then((response) => setPosts(response.data))
       .catch((error) => console.error('Error fetching posts:', error));
   }, []);
 
   // Function to handle upvoting a post
   const handleUpvote = (id) => {
-    // Send a PUT request to upvote a post using Axios
     axios
       .put(`http://localhost:8000/posts/${id}/upvote`)
       .then((response) => {
-        // Update the state with the updated post
         const updatedPosts = posts.map((post) =>
           post._id === response.data._id ? response.data : post
         );
@@ -31,11 +29,9 @@ function App() {
 
   // Function to handle downvoting a post
   const handleDownvote = (id) => {
-    // Send a PUT request to downvote a post using Axios
     axios
       .put(`http://localhost:8000/posts/${id}/downvote`)
       .then((response) => {
-        // Update the state with the updated post
         const updatedPosts = posts.map((post) =>
           post._id === response.data._id ? response.data : post
         );
@@ -47,13 +43,10 @@ function App() {
   // Function to handle submitting a new post
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Send a POST request to create a new post using Axios
     axios
       .post('http://localhost:8000/posts', newPost)
       .then((response) => {
-        // Add the new post to the state
         setPosts([...posts, response.data]);
-        // Clear the form fields
         setNewPost({ image: '', caption: '' });
       })
       .catch((error) => console.error('Error creating new post:', error));
