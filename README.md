@@ -1,12 +1,9 @@
 
-## Social Media Clone - Caption Chaos
+### Social Media Clone - Caption Chaos
 
-Full Stack App developed using MERN stack that lets you post memes and caption it.
+>Full Stack App developed using MERN stack that lets you post memes and caption it.
 
-## Deployment
-# Workshop-Project-1-Instagram
-
-### Installation
+## Installation
 
 1. Clone the repo
    ```sh
