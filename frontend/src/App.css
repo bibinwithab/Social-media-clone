@@ -1,0 +1,133 @@
+/* Apply styles to the main container */
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1d1d1d;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ff9800; /* Orange text color */
+}
+
+/* Style the form for adding new posts */
+form {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #fff; /* White text color */
+}
+
+input[type="text"] {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #555; /* Dark gray border */
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 10px 0;
+  background-color: #444; /* Dark gray background */
+  color: #fff; /* White text color */
+}
+
+button[type="submit"] {
+  background-color: #ff9800; /* Orange background */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Style the list of posts */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: #333;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+li img {
+  max-width: 100%;
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+}
+
+li p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* Style the buttons for upvoting and downvoting */
+li div {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+button {
+  background-color: #ff9800; /* Orange background */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+span {
+  font-size: 18px;
+  color: #ff9800; /* Orange text color */
+}
+
+/* Style the input field and button for adding comments */
+li div div {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+/* Style the list of comments */
+ul ul {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+
+ul ul li {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #fff; /* White text color */
+}
+
+/* Add hover effect for buttons */
+button:hover {
+  background-color: #ff8300; /* Darker orange on hover */
+}

@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import axios from 'axios'; 
+import axios from 'axios';
 
 function App() {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState({ image: '', caption: '' });
+  const [comment, setComment] = useState(''); // New comment state
 
   // Fetch all posts from the server on component mount
   useEffect(() => {
     axios
-      .get('http://localhost:8000/posts') 
+      .get('http://localhost:8000/posts')
       .then((response) => setPosts(response.data))
       .catch((error) => console.error('Error fetching posts:', error));
   }, []);
@@ -52,9 +53,38 @@ function App() {
       .catch((error) => console.error('Error creating new post:', error));
   };
 
+  // Function to handle submitting a new comment
+  const handleCommentSubmit = (id) => {
+    // Send a PUT request to add a comment to a post
+    axios
+      .put(`http://localhost:8000/posts/${id}/comment`, { comment })
+      .then((response) => {
+        // Update the state with the updated post (including the new comment)
+        const updatedPosts = posts.map((post) =>
+          post._id === response.data._id ? response.data : post
+        );
+        setPosts(updatedPosts);
+        // Clear the comment input field
+        setComment('');
+      })
+      .catch((error) => console.error('Error adding comment:', error));
+  };
+
+  // Function to handle deleting a post
+  const handleDeletePost = (id) => {
+    axios
+      .delete(`http://localhost:8000/posts/${id}`)
+      .then(() => {
+        // Remove the deleted post from the state
+        const updatedPosts = posts.filter((post) => post._id !== id);
+        setPosts(updatedPosts);
+      })
+      .catch((error) => console.error('Error deleting post:', error));
+  };
+
   return (
     <div className="App">
-      <h1>Reddit-Inspired Post Management</h1>
+      <h1>Caption Chaos: Your Goofy Post Playground</h1>
 
       {/* Form for adding a new post */}
       <form onSubmit={handleSubmit}>
@@ -89,6 +119,32 @@ function App() {
               <span>{post.upvote}</span>
               <button onClick={() => handleDownvote(post._id)}>Downvote</button>
             </div>
+
+            {/* Input field for adding comments */}
+            <div>
+              <input
+                type="text"
+                placeholder="Add a comment"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              />
+              <button onClick={() => handleCommentSubmit(post._id)}>Submit Comment</button>
+            </div>
+
+            {/* Display comments */}
+            <ul>
+              {post.comment.map((c, index) => (
+                <li key={index}>{c}</li>
+              ))}
+            </ul>
+
+            {/* Button to delete the post */}
+            <button
+              onClick={() => handleDeletePost(post._id)}
+              className="delete-button"
+            >
+              Delete Post
+            </button>
           </li>
         ))}
       </ul>
