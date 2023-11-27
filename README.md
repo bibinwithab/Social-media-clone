@@ -35,7 +35,7 @@
 5. Start both the Frontend and Backend
 - inside server
    ```sh
-   node index.js
+   npm run dev
    ```
    or
    ```
