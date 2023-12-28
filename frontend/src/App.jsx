@@ -10,7 +10,7 @@ function App() {
   // Fetch all posts from the server on component mount
   useEffect(() => {
     axios
-      .get('http://localhost:8000/posts')
+      .get('https://social-media-clone-api.vercel.app/posts')
       .then((response) => setPosts(response.data))
       .catch((error) => console.error('Error fetching posts:', error));
   }, []);
@@ -18,7 +18,7 @@ function App() {
   // Function to handle upvoting a post
   const handleUpvote = (id) => {
     axios
-      .put(`http://localhost:8000/posts/${id}/upvote`)
+      .put(`https://social-media-clone-api.vercel.app/posts/${id}/upvote`)
       .then((response) => {
         const updatedPosts = posts.map((post) =>
           post._id === response.data._id ? response.data : post
@@ -31,7 +31,7 @@ function App() {
   // Function to handle downvoting a post
   const handleDownvote = (id) => {
     axios
-      .put(`http://localhost:8000/posts/${id}/downvote`)
+      .put(`https://social-media-clone-api.vercel.app/posts/${id}/downvote`)
       .then((response) => {
         const updatedPosts = posts.map((post) =>
           post._id === response.data._id ? response.data : post
@@ -45,7 +45,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:8000/posts', newPost)
+      .post('https://social-media-clone-api.vercel.app/posts', newPost)
       .then((response) => {
         setPosts([...posts, response.data]);
         setNewPost({ image: '', caption: '' });
@@ -56,7 +56,7 @@ function App() {
   // Function to handle submitting a new comment
   const handleCommentSubmit = (id) => {
     axios
-      .put(`http://localhost:8000/posts/${id}/comment`, { comment })
+      .put(`https://social-media-clone-api.vercel.app/posts/${id}/comment`, { comment })
       .then((response) => {
         const updatedPosts = posts.map((post) =>
           post._id === response.data._id ? response.data : post
@@ -70,7 +70,7 @@ function App() {
   // Function to handle deleting a post
   const handleDeletePost = (id) => {
     axios
-      .delete(`http://localhost:8000/posts/${id}`)
+      .delete(`https://social-media-clone-api.vercel.app/posts/${id}`)
       .then(() => {
         const updatedPosts = posts.filter((post) => post._id !== id);
         setPosts(updatedPosts);
