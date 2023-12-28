@@ -7,7 +7,13 @@ const mongoose = require('mongoose')
 const PORT = process.env.PORT || 8000;
 
 // Middleware setup
-app.use(cors()); // Enable Cross-Origin Resource Sharing (CORS)
+app.use(cors(
+    {
+        origin: ["https://social-media-clone-frontend-zeta.vercel.app/"],
+        methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
+        credentials: true
+    }
+)); // Enable Cross-Origin Resource Sharing (CORS)
 app.use(express.json()); // Parse JSON request bodies
 
 // Define a Mongoose schema for posts
