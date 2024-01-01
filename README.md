@@ -29,7 +29,7 @@
    ```
 4. Inside `server` Folder ,create a new `.env` file and setup you PORT and MONGODB_URI
 
-   or check out my [env-mod](https://github.com/bibinwithab/env-mod) project 
+   or check out my [env-mod](https://github.com/bibinwithab/env-mod) project to add environment variables from terminal.
    ```js
    PORT='YOUR_PORT_NUMBER' 
    MONGODB_URI='YOUR_MONGODB_URI'
