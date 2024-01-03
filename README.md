@@ -53,7 +53,7 @@
 
 ## Contributing
 
-Contributions are welcome! To contribute to `env-mod`, follow these steps:
+Contributions are welcome! To contribute to `caption-chaos`, follow these steps:
 
 1. Fork the repository.
 2. Create a branch: `git checkout -b feature/new-feature`.
